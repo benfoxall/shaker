@@ -1,3 +1,43 @@
 <h1>test page</h1>
+
+<h2> visit - <a href="/c211bd0f-36bd-4c47-a815-18c6b712e596/">/c211bd0f-36bd-4c47-a815-18c6b712e596/</a></h2>
+
+<button id="css">css</button>
+<button id="offset">offset</button>
+<button id="get">$.get</button>
+<button id="dimensions">dimensions</button>
+<button id="animate">animate</button>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="http://localhost:3000/shaker.js?c211bd0f-36bd-4c47-a815-18c6b712e596"></script>
+
+<script type="text/javascript">
+
+	$('#css').click(function(){
+		$('body')
+			.css('background-color','#f3f3f3')
+	});
+
+	$('#offset').click(function(){
+		$(this)
+			.offset().left;
+	});
+
+	$('#get').click(function(){
+		$.get('/');
+	});
+
+
+	$('#dimensions').click(function(){
+		$(this)
+			.width();
+	});
+
+	$('#animate').click(function(){
+		$(this)
+			.animate({marginLeft:20})
+			.animate({marginLeft:0})
+	});
+
+
+</script>

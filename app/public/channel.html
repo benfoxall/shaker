@@ -1,35 +1,85 @@
-<h1>Channel</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<code>&lt;script type="text/javascript" src="<span id="code"></span>"&gt;&lt;/script&gt;</code>
+	<meta charset="utf-8">
+	<title>shaker.io</title>
 
-<hr />
+	<meta name="description" content="">
+	<meta name="author" content="@benjaminbenben">
 
-<pre id="back"></pre>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="stylesheet" href="/assets/base.css">
+	<link rel="stylesheet" href="/assets/skeleton.css">
+	<link rel="stylesheet" href="/assets/layout.css">
+	<link rel="stylesheet" href="/assets/pyg.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+	<div class="container">
+		<div class="sixteen columns">
+			<h1 style="margin-top: 40px">
+				Shaker.io
+				<small>
+					<em>
+						- find which bits of jquery you use
+					</em>
+				</small>
+			</h1>
+
+			<hr />
+
+			<div id="instruct">
+				<h2>Include shaker.js in your page</h2>
+
+				<div class="hlcode">
+					<div class="syntax">
+						<pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;jquery-1.8.2.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- AFTER jquery --&gt;</span>
+
+<span class="shkr"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;<span id="url">…</span>&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></span>
+
+<span class="c">&lt;!-- BEFORE your code --&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;/your/awesome/code.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+</pre>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="x-jquery" style="display:none" class="one-third column">
+			<h2>jQuery</h2>
+			<ul class="modules">
+				<li id="x-jquery-ajax">ajax</li>
+				<li id="x-jquery-css">css</li>
+				<li id="x-jquery-dimensions">dimensions</li>
+				<li id="x-jquery-effects">effects</li>
+				<li id="x-jquery-offset">offset</li>
+			</ul>
+		</div>
 
 
-<div id="pubnub"></div>
-<script src="http://cdn.pubnub.com/pubnub-3.4.min.js"></script>
-<script>(function(){
- 
-    // INIT PubNub
-    var pubnub = PUBNUB.init({
-    	publish_key : 'pub-c0f29142-e5b3-4ae5-a772-38ccb57f0a7f',
-        subscribe_key : 'sub-c172f475-b21b-11e1-832b-bd42eaf713d5'
-    });
+		<div id="x-jquerymobile" style="display:none" class="one-third column">
+			<h2>jQuery Mobile</h2>
+			<ul class="modules">
+				<li id="x-jquerymobile-ajax">ajax</li>
+				<li id="x-jquerymobile-css">css</li>
+				<li id="x-jquerymobile-dimensions">dimensions</li>
+				<li id="x-jquerymobile-effects">effects</li>
+				<li id="x-jquerymobile-offset">offset</li>
+			</ul>
+		</div>
+	</div>
 
-    var channel = document.location.pathname.replace(/\//g,'');
-
-    code.innerText = document.location.origin + '/shaker.js?' + channel;
- 
-    // LISTEN
-    pubnub.subscribe({
-        channel : channel,
-        message : function(m){ 
-        	console.log(">>>>", m);
-
-        	back.innerText = m + '\n\n-----\n' + back.innerText;
-        }
-    });
- 
- 
-})();</script>
+	<script src="http://cdn.pubnub.com/pubnub-3.4.min.js"></script>
+	<script src="/assets/site.js"></script>
+</body>
+</html>
