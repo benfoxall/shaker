@@ -1,0 +1,17 @@
+{
+  "name": "shakerio",
+  "version" : "0.0.1",
+  "description": "shaker.io",
+  "author": "Ben Foxall <benfoxall@gmail.com>",
+  "dependencies": {
+    "express": "3.0.x",
+    "node-uuid": "1.4.x",
+    "pubnub": "3.3.x"
+  },
+  "devDependencies": {},
+  "engines": {
+      "node": "0.8.x"
+    , "npm":  "1.1.x"
+  }
+}
+

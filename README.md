@@ -1,4 +1,3 @@
 shaker
 ======
 
-js deps app

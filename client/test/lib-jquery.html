@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="lib/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="lib/mocha.js"></script>
+    <script src="lib/expect.js"></script>
+    <script>mocha.setup('bdd')</script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script src="../core.js"></script>
+    <script src="../send.js"></script>
+    <script src="../libraries/jquery.js"></script>
+    <script src="../send.js"></script>
+
+    <script src="lib-jquery-test.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
+	

@@ -1,0 +1,35 @@
+<h1>Channel</h1>
+
+<code>&lt;script type="text/javascript" src="<span id="code"></span>"&gt;&lt;/script&gt;</code>
+
+<hr />
+
+<pre id="back"></pre>
+
+
+<div id="pubnub"></div>
+<script src="http://cdn.pubnub.com/pubnub-3.4.min.js"></script>
+<script>(function(){
+ 
+    // INIT PubNub
+    var pubnub = PUBNUB.init({
+    	publish_key : 'pub-c0f29142-e5b3-4ae5-a772-38ccb57f0a7f',
+        subscribe_key : 'sub-c172f475-b21b-11e1-832b-bd42eaf713d5'
+    });
+
+    var channel = document.location.pathname.replace(/\//g,'');
+
+    code.innerText = document.location.origin + '/shaker.js?' + channel;
+ 
+    // LISTEN
+    pubnub.subscribe({
+        channel : channel,
+        message : function(m){ 
+        	console.log(">>>>", m);
+
+        	back.innerText = m + '\n\n-----\n' + back.innerText;
+        }
+    });
+ 
+ 
+})();</script>
