@@ -8,6 +8,13 @@ var pubnub = PUBNUB.init({
 	subscribe_key : 'sub-c172f475-b21b-11e1-832b-bd42eaf713d5'
 });
 
+app.set('views', __dirname + '/views')
+
+app.get('/t1234', function(req, res){
+	var script_url = 'http://' + req.headers.host + '/shaker.js?' + req.url.slice(1);
+	res.render('shake.jade',{script_url:script_url});
+})
+
 // the channel page
 app.get('/:channel/', function(req,res){
 	res.sendfile(__dirname + '/public/channel.html');
@@ -38,4 +45,4 @@ app.post('/', function(req,res){
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 8080);

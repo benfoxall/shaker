@@ -55,6 +55,18 @@ input.massive{
 	color:#000;
 }
 
+code.embed{
+	background-color:#eee;
+	display: block;
+	white-space: pre;
+	padding:1em;
+	font-family: courier, monospace;
+	overflow: hidden;
+}
+code.embed input{
+	width:90%;
+	font-size:1.3em;
+}
 
 /* #Page Styles
 ================================================== */

@@ -28,7 +28,7 @@ if(typeof(PUBNUB)!=='undefined'){
 
 		var channel = document.location.pathname.replace(/\//g,'');
 
-		el('url').innerText = document.location.origin + '/shaker.js?' + channel;
+		// el('url').innerText = document.location.origin + '/shaker.js?' + channel;
 
 		// This started out kind of nice,  but has got horrible because I just
 		// want to get this online at the moment.

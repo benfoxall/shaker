@@ -1,0 +1,53 @@
+!!!
+html(lang='en')
+head
+    meta(charset='utf-8')
+    title shaker.io
+    meta(name='description', content='')
+    meta(name='author', content='@benjaminbenben')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(rel='stylesheet', href='/assets/base.css')
+    link(rel='stylesheet', href='/assets/skeleton.css')
+    link(rel='stylesheet', href='/assets/layout.css')
+    link(rel='stylesheet', href='/assets/pyg.css')
+    //if lt IE 9
+      script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+  body
+    .container
+      .sixteen.columns
+        h1(style='margin-top: 40px;')
+          | Shaker.io
+          small
+            em
+              | - find which bits of jquery you use
+        hr
+        #instruct
+          h2 Include shaker.js in your page
+          .hlcode
+            .syntax
+              code.embed
+                | &lt;script src=&quot;jquery-1.8.2.min.js&quot;&gt;&lt;/script&gt;
+                | &lt;!-- AFTER jquery --&gt;
+                input(readonly="readonly",type="text",value="&lt;script src=&quot;#{script_url}&quot;&gt;&lt;/script&gt;",onclick="this.select()")
+                | &lt;!-- BEFORE your code --&gt;
+                | &lt;script src=&quot;/your/awesome/code.js&quot;&gt;&lt;/script&gt;
+
+      #x-jquery.one-third.column(style='display: none;')
+        h2 jQuery
+        ul.modules
+          li#x-jquery-ajax ajax
+          li#x-jquery-css css
+          li#x-jquery-dimensions dimensions
+          li#x-jquery-effects effects
+          li#x-jquery-offset offset
+      #x-jquerymobile.one-third.column(style='display: none;')
+        h2 jQuery Mobile
+        ul.modules
+          li#x-jquerymobile-ajax ajax
+          li#x-jquerymobile-css css
+          li#x-jquerymobile-dimensions dimensions
+          li#x-jquerymobile-effects effects
+          li#x-jquerymobile-offset offset
+
+    script(src='http://cdn.pubnub.com/pubnub-3.4.min.js')
+    script(src='/assets/site.js')
