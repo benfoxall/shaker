@@ -1,6 +1,6 @@
 {
   "name": "shakerio",
-  "version" : "0.0.1",
+  "version": "0.0.1",
   "description": "shaker.io",
   "author": "Ben Foxall <benfoxall@gmail.com>",
   "dependencies": {
@@ -11,8 +11,11 @@
   },
   "devDependencies": {},
   "engines": {
-      "node": "0.8.x"
-    , "npm":  "1.1.x"
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "subdomain": "shaker",
+  "scripts": {
+    "start": "node app"
   }
 }
-
