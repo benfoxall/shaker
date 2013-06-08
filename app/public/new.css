@@ -1,0 +1,37 @@
+body,html{
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+h1{
+	margin:0;
+	padding: .25em 0;
+	background-color:#f5f5f5;
+	/* border-bottom: 1px solid #bbb; */
+	font-family: Quicksand;
+	/* color:#08f; */
+	/* text-shadow: 5px 5px 5px rgb(0, 51, 255); */
+	font-size: 4em;
+	font-weight: 300;
+	box-shadow: 0 0 5px #aaa;
+}
+a{
+	color:#08f;
+	text-decoration: none
+}
+.lead{
+	font-size:150%;
+}
+.container{
+	margin:auto;
+	max-width: 760px;
+}
+code{
+	display: block;
+	padding: 0.5em;
+	font-size: 134%;
+	border-left: 2px solid #08f;
+	margin: 1em;
+}
+code span{
+	border-bottom:1px dotted #08f;
+}
