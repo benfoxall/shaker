@@ -15,6 +15,11 @@
     "npm": "1.1.x"
   },
   "subdomain": "shaker",
+  "domains": [
+    "shaker.io",
+    "www.shaker.io",
+    "dev.shaker.io"
+  ],
   "scripts": {
     "start": "node app"
   }
