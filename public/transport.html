@@ -14,28 +14,33 @@
 
 		window.addEventListener('message', function(e){
 			console.log('>>', e.data);
+
 			// update the js dependencies object
 			var deps_str = localStorage.getItem(localStoreKey) || '{}';
 
-			var deps = JSON.parse(deps_str);
+			var deps = {};
+			try{
+				deps = JSON.parse(deps_str);
+			} catch (e){}
 
 			// a.b.c=d
 			var key_value = e.data.split('=');
 			var keys = key_value[0].split('.');
 
-			var target = deps;
-			for (var i = 0; i < keys.length; i++) {
-				var k = keys[i];
-
-				if(i == keys.length - 1){
-					target[k] = key_value[1]
-				} else{
-					if(typeof(target[k]) == 'undefined'){
-						target[k] = {};
+			// recuse through the object till we find the
+			// right place to put the value
+			(function setTarget(obj, keys, value){
+				var k = keys.shift();
+				if(!keys.length){
+					console.log(k,value)
+					obj[k] = value || null;
+				} else {
+					if(!obj[k]){
+						obj[k] = {};
 					}
-					target = target[k];
+					setTarget(obj[k], keys, value);
 				}
-			};
+			})(deps, keys, key_value[1]);
 
 			console.log("dependencies:", deps)
 

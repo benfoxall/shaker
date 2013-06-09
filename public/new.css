@@ -1,6 +1,7 @@
 body,html{
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
+	margin-bottom: 3em;
 }
 h1{
 	margin:0;
@@ -9,6 +10,13 @@ h1{
 	font-size: 5em;
 	font-weight: 300;
 	box-shadow: 0 0 5px #aaa;
+}
+h2{
+	font-size:4em;
+	font-weight: 300;
+	margin: 0;
+	margin-bottom: .5em;
+	border-top: 1px solid #ccc;
 }
 a{
 	color:#08f;
@@ -38,4 +46,36 @@ code{
 }
 code span{
 	border-bottom:1px dotted #08f;
+}
+#instructions{
+}
+#instructions.inactive{
+	display:none;
+}
+#results.inactive{
+	color:#aaa;
+}
+#results{
+	/*background-color: #E5EEF5;*/
+	padding: 10px;
+	border-radius: 10px;
+	/* border-left: 3px solid #f08; */
+	margin-top: 3em;
+}
+#results ul{
+	/* background-color:#08f; */
+	color: #7E7C7C;
+	/* width: 50%; */
+	margin: 0;
+	list-style: none;
+	padding: 0;
+	font-size: 2em;
+}
+#results strong{
+	font-size: 1.5em;
+	color: #000;
+}
+#results .used{
+	color:green;
+	background-color: #D2EBBE;
 }

@@ -31,53 +31,41 @@
 	</h1>
 
 	<div class="container">
-		<p class="dev-note">
-			This is still in active development, so things might not be working yet. The source code is available on <a href="https://github.com/benfoxall/shaker">github</a> if you feel like lending a hand (suggestions, code, content &amp; design changes all very welcome). 
+		<div id="instructions">
+			<p class="dev-note">
+				This is still in active development, so things might not be working yet. The source code is available on <a href="https://github.com/benfoxall/shaker">github</a> if you feel like lending a hand (suggestions, code, content &amp; design changes all very welcome). 
 
-			<a href="https://twitter.com/benjaminbenben">@benjaminbenben</a>
-		</p>
+				<a href="https://twitter.com/benjaminbenben">@benjaminbenben</a>
+			</p>
 
-		<p class="lead">
-			Find which parts of jquery you use<!-- - launch <a href="#demo">demo</a-->
-		</p>
+			<p class="lead">
+				Find which parts of jquery you use<!-- - launch <a href="#demo">demo</a-->
+			</p>
 
-		<p>
-			*Replace* your jquery with this instrumented version:
-			<code>
-				<span>
-					&lt;script src="{{script_url}}"&gt;&lt;/script&gt;
-				</span>
-			</code>
-		</p>
-		<!--p>
-			<em>&hellip;accessing on a different browser, or device? <a href="#custom">customise this include</a></em>
-		</p>
-		<form method="post">
-			<input class="massive" type="submit" value="Get started &raquo;" />
-		</form-->
-	</div>
-
-	
-<!--
-	<div class="container">
-		<div class="sixteen columns">
-			<h1 style="margin-top: 40px">
-				Shaker.io
-				<small>
-					<em>
-						- find which bits of jquery you use
-					</em>
-				</small>
-			</h1>
-
-			<hr />
-
+			<p>
+				*Replace* your jquery with this instrumented version:
+				<code>
+					<span>
+						&lt;script src="{{script_url}}"&gt;&lt;/script&gt;
+					</span>
+				</code>
+			</p>
+			<!--p>
+				<em>&hellip;accessing on a different browser, or device? <a href="#custom">customise this include</a></em>
+			</p>
 			<form method="post">
 				<input class="massive" type="submit" value="Get started &raquo;" />
-			</form>
+			</form-->
+		</div>
+
+		<div id="results" class="inactive">
+			<h2>Results</h2>
+			<ul id="results_list">
+				<li>Load a page containing the script above to populate this</li>
+			</ul>
 		</div>
 	</div>
-	<script src="/assets/site.js"></script>
--->
+
+	<script type="text/javascript" src="site.js"></script>
 </body>
 </html>
