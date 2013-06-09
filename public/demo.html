@@ -7,18 +7,36 @@
 	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <a class="brand" href="#">shaker demo page</a>
+    <!--
+    <ul class="nav" role="navigation">
+		<li class="dropdown">
+		<a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="">Dropdowns</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Don't</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="https://github.com/twitter/bootstrap/blob/master/js/bootstrap-dropdown.js">Something else here</a></li>
+		</ul>
+		</li>
+	</ul>
+	-->
+  </div>
+</div>
 	<div class="container">
-		<h1>shaker demo page</h1>
-		<button class="btn" id="css">css</button>
-		<button class="btn" id="offset">offset</button>
-		<button class="btn" id="get">$.get</button>
-		<button class="btn" id="dimensions">dimensions</button>
-		<button class="btn" id="animate">animate</button>
+
+		<p class="lead">This is an example page using the vanilla bootstrap js libs</p>
+
+		<p>This paragraph has <a href="#" class="tt" title="first tooltip">some</a> <a href="#" class="tt" title="yup another one">tool</a> <a href="#" class="tt" title="And another" data-placement="bottom">tips</a> in it</p>
 
 
-		<!-- Button to trigger modal -->
-		<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
-		 
+		<p><a href="#" id="pop" class="btn btn-info" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title">Click to toggle popover</a></p>
+
+		<p>
+		<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch inline modal</a>
+		<a data-toggle="modal" class="btn"  href="modal.html" data-target="#remoteModal">Launch remote modal</a>
+		</p>
 		<!-- Modal -->
 		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		  <div class="modal-header">
@@ -26,14 +44,49 @@
 		    <h3 id="myModalLabel">Modal header</h3>
 		  </div>
 		  <div class="modal-body">
-		    <p>One fine body…</p>
-		  </div>
-		  <div class="modal-footer">
-		    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-		    <button class="btn btn-primary">Save changes</button>
+		    <p>Hello</p>
 		  </div>
 		</div>
-	</div>
+		<div id="remoteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="myModalLabel">Modal header</h3>
+		  </div>
+		  <div class="modal-body">
+		  </div>
+		</div>
+
+
+<p>
+	Radio button group
+	<span class="btn-group" data-toggle="buttons-radio">
+	  <button type="button" class="btn btn-primary">One</button>
+	  <button type="button" class="btn btn-primary">Two</button>
+	  <button type="button" class="btn btn-primary">Three</button>
+	</span>
+</p>
+
+
+
+<hr />
+<h4>Straight jQuery</h4>
+<p>
+
+		<button class="btn" id="css">css</button>
+		<button class="btn" id="offset">offset</button>
+		<button class="btn" id="get">$.get</button>
+		<button class="btn" id="dimensions">dimensions</button>
+		<button class="btn" id="animate">animate</button>
+</p>
+
+
+<hr />
+
+<button class="btn btn-huge btn-danger" id="reset">Reset</button>
+
+</div>
+
+
 
 
 
@@ -41,22 +94,28 @@
 
 	$('#css').click(function(){
 		$('body')
-			.css('background-color','#f3f3f3')
+			.css('background-color','#ccc')
 	});
 
 	$('#offset').click(function(){
-		$(this)
-			.offset().left;
+		var str = JSON.stringify($(this).offset());
+		$(this).text('button offset = ' +str)
+		
 	});
 
 	$('#get').click(function(){
-		$.get('/');
+		var $this = $(this);
+		$.get('/modal.html')
+		.then(function(rsp){
+			$this.text('…got')
+		});
 	});
 
 
 	$('#dimensions').click(function(){
-		$(this)
-			.width();
+		$(this).width();
+
+		$(this).text('button width = ' +$(this).width());
 	});
 
 	$('#animate').click(function(){
@@ -64,6 +123,29 @@
 			.animate({marginLeft:20})
 			.animate({marginLeft:0})
 	});
+
+	// bootstrap things
+	$('.tt').on('mouseover', function(){
+		$(this).tooltip('show')
+	})
+
+	$('#pop').one('click',function(){
+		$(this).popover({trigger:'click'}).popover('show');
+	});
+
+	// possible because this might be on the same domain
+	$('#reset').on('click', function(){
+		localStorage.setItem('deps', '{}');
+		window.location.reload()
+
+	})
+
+	// .on('click',function(e){
+	// 	e.preventDefault();
+
+	// 	$(this).popover('toggle');
+
+	// });
 
 
 </script>
