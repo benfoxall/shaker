@@ -28,13 +28,14 @@ app.get('/v0/jquery.1.10.1.instrument.js', function(req,res){
 
 	res.setHeader('Content-Type', 'application/javascript');
 
-	var transport_iframe = url.format({
+	var origin = url.format({
 		host:req.headers.host, 
-		pathname:'transport.html',
+		pathname:'',
 		protocol:'http'
 	});
+	frame_src = url.resolve(origin, 'transport.html');
 
-	res.render('instrument_jquery.ejs', {transport_iframe:transport_iframe})
+	res.render('instrument_jquery.ejs', {origin:origin,frame_src:frame_src})
 });
 
 

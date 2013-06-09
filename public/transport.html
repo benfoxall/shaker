@@ -4,7 +4,9 @@
 
 	<!--
 		This listens for postMessage events and persists them to localStorage
-		Which allows cross origin, cross window transfer
+		Which allows cross origin, cross window transfer.
+
+		A 'ready', message will be sent to the parent window when loaded
 	-->
 
 	<script type="text/javascript">
@@ -40,6 +42,10 @@
 			localStorage.setItem(localStoreKey, JSON.stringify(deps));
 
 		}, false);
+
+		if(window.top !== window){
+			window.top.postMessage('ready', '*');
+		}
 	</script>
 </head>
 <body />

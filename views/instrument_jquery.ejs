@@ -2,8 +2,26 @@
 
 <% include lib/jquery-1.10.1.min.js %>
 
-(function(iframe_url){
+(function(origin, frame_src){
 
-	console.log("yeah - " + iframe_url);
+	// set up the transport.
 
-})("{{transport_iframe}}");
+	var domready = <% include lib/domready.js %>;
+
+	var ifr = document.createElement('iframe');
+	ifr.setAttribute('style', 'display:none');
+	ifr.setAttribute('src', frame_src);
+
+	domready(function(){
+		document.body.appendChild(ifr);	
+	});
+
+	window.addEventListener('message', function(e){
+		if(e.origin === origin){
+			console.log("yes, from the iframe")
+
+		}
+		console.log("DATA ", e);
+	}, false);
+
+})("<%= origin %>","<%= frame_src %>");
