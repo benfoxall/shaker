@@ -15,12 +15,29 @@ app.get('/', function(req, res){
 
 	var script_url = url.format({
 		host:req.headers.host, 
-		pathname:'instr/v1/jquery.1.10.1.min.js',
+		pathname:'v0/jquery.1.10.1.instrument.js',
 		protocol:'http'
 	});
 	
 	res.render('index', {script_url:script_url})
 });
+
+
+app.get('/v0/jquery.1.10.1.instrument.js', function(req,res){
+
+	res.setHeader('Content-Type', 'application/javascript');
+
+	var transport_iframe = url.format({
+		host:req.headers.host, 
+		pathname:'transport.html',
+		protocol:'http'
+	});
+
+	res.render('instrument_jquery', {transport_iframe:transport_iframe})
+});
+
+
+
 
 /*
 

@@ -1,0 +1,7 @@
+// injected after jquery
+
+(function(iframe_url){
+
+	console.log("yeah - " + iframe_url);
+
+})("{{transport_iframe}}");
