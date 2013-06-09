@@ -92,4 +92,25 @@
 	});
 
 
+	// Third party plugins - bit sketchy at the moment
+
+	var fns = Object.keys($.fn),
+		intercept_upto = fns.length;
+
+	window.skr_intercept = function(){
+
+		// intercept any extra plugins that have been added
+		fns = Object.keys($.fn);
+		fns.slice(intercept_upto).forEach(function(k){
+			feature('plugins.' + k, function(used){
+				spy($.fn,k, used);
+			});
+		});
+
+		intercept_upto = fns.length;
+
+	}
+
+
+
 })("<%= origin %>","<%= frame_src %>");
