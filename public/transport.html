@@ -27,7 +27,7 @@
 			var key_value = e.data.split('=');
 			var keys = key_value[0].split('.');
 
-			// recuse through the object till we find the
+			// recurse through the object till we find the
 			// right place to put the value
 			(function setTarget(obj, keys, value){
 				var k = keys.shift();

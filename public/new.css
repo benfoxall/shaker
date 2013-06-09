@@ -15,8 +15,18 @@ h2{
 	font-size:4em;
 	font-weight: 300;
 	margin: 0;
-	margin-bottom: .5em;
-	border-top: 1px solid #ccc;
+}
+h3{
+	font-size:2em;
+	font-weight: 300;
+	margin: 0;
+}
+h4{
+	font-size: 1em;
+	font-weight: 300;
+	margin: 0;	
+	color: #777;
+	margin-bottom: 1em;
 }
 a{
 	color:#08f;
@@ -69,7 +79,9 @@ code span{
 	margin: 0;
 	list-style: none;
 	padding: 0;
-	font-size: 2em;
+	font-size: 1.25em;
+	margin-left: 1em;
+	margin-bottom:1em;
 }
 #results strong{
 	font-size: 1.5em;

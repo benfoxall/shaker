@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title></title>
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+
+	<script type="text/javascript" src="/v0/jquery.1.10.1.instrument.js"></script>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1>shaker demo page</h1>
+		<button class="btn" id="css">css</button>
+		<button class="btn" id="offset">offset</button>
+		<button class="btn" id="get">$.get</button>
+		<button class="btn" id="dimensions">dimensions</button>
+		<button class="btn" id="animate">animate</button>
+	</div>
+
+
+
+<script type="text/javascript">
+
+	$('#css').click(function(){
+		$('body')
+			.css('background-color','#f3f3f3')
+	});
+
+	$('#offset').click(function(){
+		$(this)
+			.offset().left;
+	});
+
+	$('#get').click(function(){
+		$.get('/');
+	});
+
+
+	$('#dimensions').click(function(){
+		$(this)
+			.width();
+	});
+
+	$('#animate').click(function(){
+		$(this)
+			.animate({marginLeft:20})
+			.animate({marginLeft:0})
+	});
+
+
+</script>
+
+</body>
+</html>
