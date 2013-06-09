@@ -40,4 +40,56 @@
 	}
 
 
+	// Core things
+
+	function feature(name, configFn){
+		// register the feature
+		emit(name);
+
+		configFn(function(){
+			emit(name + '=true');
+		});
+	}
+
+	// spy on an objects function, when called call back, 
+	// through and replace with original
+	function spy(obj, fn, callback){
+		var original = obj[fn];
+		obj[fn] = function(){
+			callback();
+			obj[fn] = original;
+			return original.apply(this,arguments);
+		}
+	}
+
+
+	// The actual checks!
+
+	feature('modules.ajax', function(used){
+		spy($,'ajax', used);
+		spy($.fn,'load', used);
+	});
+
+	feature('modules.css', function(used){
+		spy($.fn,'css', used);
+	});
+
+	feature('modules.dimensions', function(used){
+		spy($.fn,'width', used);
+		spy($.fn,'height', used);
+	});
+
+	feature('modules.effects', function(used){
+		spy($.fn,'animate', used);
+		spy($.fn,'fadeTo', used);
+		spy($.fn,'stop', used);
+	});
+
+	feature('modules.offset', function(used){
+		spy($.fn,'offset', used);
+		spy($.fn,'position', used);
+		spy($.fn,'offsetParent', used);
+	});
+
+
 })("<%= origin %>","<%= frame_src %>");
