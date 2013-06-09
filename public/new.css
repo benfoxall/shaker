@@ -28,6 +28,9 @@ h4{
 	color: #777;
 	margin-bottom: 1em;
 }
+h1 a{
+	color:#000;
+}
 a{
 	color:#08f;
 	text-decoration: none
