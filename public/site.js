@@ -2,10 +2,9 @@
 // clear it out on load
 localStorage.setItem('deps', '{}');
 
-var s = document.createElement('span');
 function safe(text){
-	s.innerText = text;
-	return s.innerHTML;
+	// I KNOW THIS IS BAD
+	return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
 function to_ul(obj){
@@ -70,3 +69,18 @@ _gaq.push(['_trackPageview']);
 	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
+
+
+document.addEventListener("click", function( event ) {
+
+// display the current click count inside the clicked div
+	console.log(event);
+}, false);
+
+
+[].forEach.call(document.querySelectorAll('a.popout'), function(el){
+	el.addEventListener("click", function(e){
+		e.preventDefault();
+		window.open(el.href, 'popout', 'width=400,height=500');
+    })
+});
