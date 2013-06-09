@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="/v0/jquery.1.10.1.instrument.js"></script>
+</head>
+<body>
+
+<button id="css">css</button>
+<button id="offset">offset</button>
+<button id="get">$.get</button>
+<button id="dimensions">dimensions</button>
+<button id="animate">animate</button>
+
+<script type="text/javascript">
+
+	$('#css').click(function(){
+		$('body')
+			.css('background-color','#f3f3f3')
+	});
+
+	$('#offset').click(function(){
+		$(this)
+			.offset().left;
+	});
+
+	$('#get').click(function(){
+		$.get('/');
+	});
+
+
+	$('#dimensions').click(function(){
+		$(this)
+			.width();
+	});
+
+	$('#animate').click(function(){
+		$(this)
+			.animate({marginLeft:20})
+			.animate({marginLeft:0})
+	});
+
+
+</script>
+
+</body>
+</html>
