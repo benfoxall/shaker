@@ -16,12 +16,28 @@
 		document.body.appendChild(ifr);	
 	});
 
+	var transport_active = false;
+	var transport_pending = [];
+
 	window.addEventListener('message', function(e){
 		if(e.origin === origin){
 			console.log("yes, from the iframe")
-
+			transport_active = true;
+			transport_pending.forEach(emit);
+			transport_pending = [];
 		}
-		console.log("DATA ", e);
 	}, false);
+
+
+	// send the message to the parent window
+	function emit(message){
+		if(transport_active){
+			ifr.contentWindow.postMessage(message,origin);
+		} else{
+			// queue up the messges
+			transport_pending.push(message);
+		}
+	}
+
 
 })("<%= origin %>","<%= frame_src %>");
