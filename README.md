@@ -5,6 +5,30 @@
 This is a tool for finding out which parts of jquery you're using.
 
 
+### Dependency transfer formats/style
+
+The collection from the script will be messages:
+
+```
+transport.send('modules.css=true')
+```
+
+This is brought together in the final ui with a format along the lines of:
+
+```js
+{
+	modules:{
+		ajax:null, // not yet used
+		css:true,  //has been used
+		//…
+	},
+	plugins:{
+		fancybox: null,
+		//…	
+	}
+}
+```
+
 ## Licence
 
 Copyright &copy; 2013 Ben Foxall
