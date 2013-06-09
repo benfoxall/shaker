@@ -7,7 +7,8 @@
     "express": "3.0.x",
     "node-uuid": "1.4.x",
     "jade": "0.28.x",
-    "hulk-hogan": "0.0.9"
+    "hulk-hogan": "0.0.9",
+    "ejs": "*"
   },
   "devDependencies": {},
   "engines": {

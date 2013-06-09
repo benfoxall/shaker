@@ -7,8 +7,9 @@ var app = express();
 app.set('views', __dirname + '/views')
 
 // use hulk / hogan.js for views
-app.set('view engine', 'hulk');
-app.engine('hulk', require('hulk-hogan').__express)
+app.set('view engine', 'html');
+app.engine('html', require('hulk-hogan').__express)
+app.engine('ejs', require('ejs').renderFile);
 
 
 app.get('/', function(req, res){
@@ -33,7 +34,7 @@ app.get('/v0/jquery.1.10.1.instrument.js', function(req,res){
 		protocol:'http'
 	});
 
-	res.render('instrument_jquery', {transport_iframe:transport_iframe})
+	res.render('instrument_jquery.ejs', {transport_iframe:transport_iframe})
 });
 
 
