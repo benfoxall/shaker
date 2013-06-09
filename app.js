@@ -1,14 +1,28 @@
+var url = require('url');
 var uuid = require('node-uuid');
-var PUBNUB = require('pubnub');
 var express = require('express');
+var hulk = require('hulk-hogan');
 var app = express();
 
-var pubnub = PUBNUB.init({
-	publish_key : 'pub-c0f29142-e5b3-4ae5-a772-38ccb57f0a7f',
-	subscribe_key : 'sub-c172f475-b21b-11e1-832b-bd42eaf713d5'
+app.set('views', __dirname + '/views')
+
+// use hulk / hogan.js for views
+app.set('view engine', 'hulk');
+app.engine('hulk', require('hulk-hogan').__express)
+
+
+app.get('/', function(req, res){
+
+	var script_url = url.format({
+		host:req.headers.host, 
+		pathname:'instr/v1/jquery.1.10.1.min.js',
+		protocol:'http'
+	});
+	
+	res.render('index', {script_url:script_url})
 });
 
-app.set('views', __dirname + '/views')
+/*
 
 app.get('/t1234', function(req, res){
 	var script_url = 'http://' + req.headers.host + '/shaker.js?' + req.url.slice(1);
@@ -42,7 +56,11 @@ app.get('/:channel/push.png', function(req,res){
 app.post('/', function(req,res){
 	res.redirect('/' + uuid.v4() + '/');
 });
+*/
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(process.env.PORT || 8080);
+var port = process.env.PORT || 8080;
+app.listen(port);
+
+console.log("Listening on " + port);

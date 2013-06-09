@@ -45,7 +45,7 @@
 			*Replace* your jquery with this instrumented version:
 			<code>
 				<span>
-					&lt;script src="http://shaker.io/instr/v1/jquery.1.10.1.min.js"&gt;&lt;/script&gt;
+					&lt;script src="{{script_url}}"&gt;&lt;/script&gt;
 				</span>
 			</code>
 		</p>
