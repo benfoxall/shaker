@@ -46,10 +46,6 @@ a{
 .lead{
 	font-size:150%;
 }
-.container{
-	margin:auto;
-	max-width: 760px;
-}
 code{
 	display: block;
 	padding: 0.5em;
